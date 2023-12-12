@@ -4,8 +4,8 @@ function getComputerChoice() {
     return options[Math.floor(Math.random() * options.length)];
 }
 
-const playerSelection = (prompt("Choose an option: rock, paper or scissors")).toLowerCase();
-const computerSelection = getComputerChoice();
+let playerSelection;
+let computerSelection;
 
 function playRound(playerSelection, computerSelection) {
     if(playerSelection === "rock") {
@@ -32,9 +32,19 @@ function playRound(playerSelection, computerSelection) {
         }else if (computerSelection === "paper")  {
             return ("It's a tie! Play again");
         }
+    } 
+}
+
+function game(playerSelection, computerSelection) {
+
+    for(let i = 1; i < 6; i++) {
+        playerSelection = (prompt("Choose an option: rock, paper or scissors")).toLowerCase();
+        computerSelection = getComputerChoice();
+        console.log(playerSelection);
+        console.log(computerSelection);
+        playRound(playerSelection, computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
     }
 }
 
-console.log(playerSelection);
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+console.log(game(playerSelection, computerSelection));
